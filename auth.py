@@ -17,7 +17,8 @@ def authApi():
 
 @app.route('/AuthUserPass', methods=['POST'])
 def authUser():
-    content = request.json
+    content = request.get_json()
+    print(content)
     if ((content['username'] == 'evan' and content['password'] == 'Cyb3r@rk1') or (content['username'] == 'rob' and content['password'] == 'CyberArk2!')):
         response = {'message': 'Authentication successful!', 'session_token': secrets.token_urlsafe()}
         return response, 200
