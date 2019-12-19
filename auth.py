@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/AuthAPIKey', methods=['POST'])
 def authApi():
-    content = request.data.decode('UTF-8')
+    content = request.get_data().decode('UTF-8')
     print(content)
     if content == 'bHeKgNkRnTqWtYv3y5A7DaFcHfMhPkSp' or content == '5A7DaFcHfMhPmSpUrXuZw3z6B8DbGdJg' or content == 'A7DaFcJfMhPmSpUrXuZw3z6B8EbGdJgN':
        response = {'message': 'Authentication successful!', 'session_token': secrets.token_urlsafe()}
